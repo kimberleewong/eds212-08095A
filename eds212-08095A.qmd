@@ -59,5 +59,7 @@ sw_height_mean <- round(mean(starwars$height, na.rm = TRUE), digits = 3)
 
 The mean height of all starwars characters is `r sw_height_mean`
 
+boop 
+
 
 
