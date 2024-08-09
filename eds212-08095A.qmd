@@ -1,0 +1,63 @@
+---
+title: "eds212-08095A"
+author: "Kimmy Wong"
+format: html
+execute: 
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+```{r}
+#| message: false
+## load tidyverse ----
+library(tidyverse)
+```
+
+try using 'head()', 'tail()', 'dim()', but don't include it
+
+```{r}
+#| include: false
+# do some data exploration 
+head(starwars)
+
+tail(starwars)
+
+dim(starwars)
+```
+
+- create ggplot (scatterplot) of character 'mass' (y-axis) and 'height' (x-axis)
+- update the color of the points so its based on 'mass'
+- echo on false does not print code on render
+
+```{r}
+#| echo: false
+ggplot(starwars, aes(x = height, y = mass, colour = mass)) +
+  geom_point() +
+  labs(x = 'Height (cm)', 
+  y = 'Mass (kg)',
+  title = 'Title')
+```
+
+- create a histogram of character heights
+- update fill color to purple and the outside border line of each bin to orange 
+- update axis labels
+- update code chunk options  so that only code and output graph appear
+
+```{r}
+#| fig-cap: "This is my figure caption"
+#| fig-alt: "This is some alt text"
+ggplot(data = starwars, aes(x = height))+
+         geom_histogram(color = "orange", fill = "purple")+
+         labs(x = "Character heights (cm)", y = "Count")
+```
+
+'df$col_name'
+
+```{r}
+sw_height_mean <- round(mean(starwars$height, na.rm = TRUE), digits = 3)
+```
+
+The mean height of all starwars characters is `r sw_height_mean`
+
+
+
